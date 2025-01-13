@@ -3,7 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        *{-webkit-tap-highlight-color: transparent;
+        *{
+            -webkit-tap-highlight-color: transparent;
             padding: 0px;
             margin: 0px;
             box-sizing: border-box;
@@ -20,7 +21,7 @@
 			background-color: #555;
 		}
 		*::-webkit-scrollbar-track {
-			background-color: #e6e6e6;
+			background-color: #ddd;
 		}
         .header{
             background-color: #99f;
@@ -35,9 +36,16 @@
         .aside{
 			height: calc(100dvh - 50px);
             width: 300px;
-            background-color: #f4f4f4;
+            background-color: #eee;
             padding: 10px;
             overflow: auto;
+            display: block;
+        }
+        .aside::-webkit-scrollbar {
+			width: 0px;
+		}
+		.aside:hover::-webkit-scrollbar{
+            width: 10px;
         }
         .section{
 			height: calc(100dvh - 50px);
@@ -62,12 +70,13 @@
         .asidespan{
             margin-left: auto;
             margin-right: 6px;
-
         }
         .aside a:hover{
             background-color: #ccc;
         }
-        .asideul{display: none;}
+        .asideul{
+            display: none;
+        }
         .cd{
             width: 50px;
             height: 50px;
@@ -87,12 +96,21 @@
             .aside {
                display: none;
 			   position: absolute;
+			   width: 250px;
             }
             .cd{
                 display: block;
             }
+            *::-webkit-scrollbar {
+			width: 6px;
+		    }
+		    .aside::-webkit-scrollbar {
+			width: 6px;
+		    }
+		    .aside:hover::-webkit-scrollbar{
+            width: 6px;
+            }
         }
-
     </style>
     <title>GitHub页面</title>
 </head>
@@ -104,31 +122,46 @@
         <aside class="aside" id="aside">
             <h3>菜单</h3>
             <ul>
-                <li><a href="#">项目介绍<span class="asidespan"><svg width="20px" height="20px" fill="#99f" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 768L128 382.592 190.336 320 512 642.816 833.664 320l62.336 62.592z" /></svg></span></a>
+                 <li><a href="#md1">项目介绍</a></li>
+                 <li><a href="#md2">已实现功能</a></li>
+                 <li><a href="#md2">ACE编辑器的基本使用</a></li>
+                 <li><a href="#md2">1.html中文标签实现高亮</a></li>
+                 <li><a href="#">2.html中文提示功能<span class="asidespan"></span></a>
                     <ul class="asideul">
                         <li><a href="#">链接1</a></li>
                         <li><a href="#">链接2</a></li>
                         <li><a href="#">链接3</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">1.ACE的基本使用</a></li>
-                <li><a href="#">2.HTML的中文显示</a></li>
+                    </ul></li>
+                <li><a href="#">3.html中文语法报错修改</a></li>
+                <li><a href="#">4.html中英文转换</a></li>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <li><a href="#">3.HTML的中文显示</a></li>
             </ul>
         </aside>
         <section class="section">
-            <h3>项目介绍</h3>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h3 id="md1">项目介绍</h3>
             <p>通过分析更改ACE已构建的代码实现类易语言的拼音输入编程方式</p>
-            <!-- 添加更多内容 -->
+            <br>
+            <h3 id="md2">已实现功能</h3>
+            <p>1.html中文标签实现高亮</p>
+            <p>2.html中文提示功能</p>
+            <p>3.html中文语法报错修改</p>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <p>3.html中文语法报错修改</p>
         </section>
     </main>
-	<div class="cd" id="cd"><svg width="30px" height="50px" fill="#f9f9f9" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M118.784 184.32h786.432v131.072H118.784V184.32z m0 262.144h524.288v131.072H118.784V446.464z m0 262.144h786.432V839.68H118.784V708.608zM708.608 348.16L905.216 512 708.608 643.072V348.16z" /></svg></div>
+	<div class="cd" id="cd"></div>
 </body>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            var icon1 =`<svg width="20px" height="20px" fill="#99f" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 768L128 382.592 190.336 320 512 642.816 833.664 320l62.336 62.592z" /></svg>`;
+            var icon2 =`<svg width="20px" height="20px" fill="#99f" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M833.664 704L512 381.184 190.336 704 128 641.408 512 256l384 385.408z" /></svg>`;
+            var icon3 =`<svg width="30px" height="50px" fill="#f9f9f9" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M118.784 184.32h786.432v131.072H118.784V184.32z m0 262.144h524.288v131.072H118.784V446.464z m0 262.144h786.432V839.68H118.784V708.608zM708.608 348.16L905.216 512 708.608 643.072V348.16z" /></svg>`;
+            var icon4 =`<svg width="30px" height="50px" fill="#f9f9f9" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M896 192H128v128h768V192z m0 256H384v128h512V448z m0 256H128v128h768V704zM320 384L128 512l192 128V384z" /></svg>`;
             var asidespans = document.querySelectorAll('.asidespan');
             var asideuls = document.querySelectorAll('.asideul');
             asidespans.forEach(function(arrow, index) {
+                arrow.innerHTML = icon1;
                 arrow.addEventListener('click', function(event) {
                     var asideul = asideuls[index];
                     if (asideul.style.display === 'none' || asideul.style.display === '') {
@@ -140,17 +173,22 @@
                     }
                 });
             });
-            var icon1 =`<svg width="20px" height="20px" fill="#99f" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 768L128 382.592 190.336 320 512 642.816 833.664 320l62.336 62.592z" /></svg>`;
-            var icon2 =`<svg width="20px" height="20px" fill="#99f" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M833.664 704L512 381.184 190.336 704 128 641.408 512 256l384 385.408z" /></svg>`;
-            var icon3 =`<svg width="30px" height="50px" fill="#f9f9f9" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M118.784 184.32h786.432v131.072H118.784V184.32z m0 262.144h524.288v131.072H118.784V446.464z m0 262.144h786.432V839.68H118.784V708.608zM708.608 348.16L905.216 512 708.608 643.072V348.16z" /></svg>`;
-            var icon4 =`<svg width="30px" height="50px" fill="#f9f9f9" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M896 192H128v128h768V192z m0 256H384v128h512V448z m0 256H128v128h768V704zM320 384L128 512l192 128V384z" /></svg>`;
             var cd = document.getElementById('cd');
             var aside = document.getElementById('aside');
+            cd.innerHTML = icon3;
             cd.addEventListener('click',function(){
                 if (aside.style.display === 'none' || aside.style.display === '') {
                     aside.style.display = 'block';
                     cd.innerHTML = icon4;
                 } else {
+                    aside.style.display = 'none';
+                    cd.innerHTML = icon3;
+                }
+            });
+            window.addEventListener('resize', function(){
+                if (window.innerWidth > 768) {
+                    aside.style.display = 'block';
+                }else {
                     aside.style.display = 'none';
                     cd.innerHTML = icon3;
                 }
