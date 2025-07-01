@@ -13,7 +13,8 @@ _斜体_
 
 ----
 
-- [ ] 选择框
+- [x] 选择框
+- [] 选择框
 
 <details markdown='1'><summary>展开/收起</summary>
 折叠内容
